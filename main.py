@@ -15,7 +15,7 @@ class colors:
 
 user = "matei"
 config = "/home/" + user + "/nixdots" # Config file location, to be exposed in a configuration file
-log_path = "/home/" + user + "/.cache/nas.log"
+log_path = "/home/" + user + "/.cache/n.log"
 log = open(log_path, "a") # Log file location
 
 # Define command help information
@@ -27,7 +27,7 @@ commands = {
 }
 
 if len(sys.argv) < 2: # Checks if the only argument is the script name
-    print(colors.CYAN + "nas" + colors.END + " - A wrapper for NixOS commands")
+    print(colors.CYAN + "n" + colors.END + " - A wrapper for NixOS commands")
     print("")
     for command, info in commands.items():
         args_with_highlight = info['args'].replace('[', colors.END + colors.YELLOW + '[').replace(']', ']' + colors.END)
@@ -58,4 +58,4 @@ elif str(sys.argv[1]) == "rebuild": # Logic for rebuilding a configuration
         except Exception as e:
             print(colors.RED + "An error occurred: " + str(e) + colors.END)
 else: # Argument that doesn't exist
-    print(colors.RED + "Argument not recognised. Run "  + colors.END + colors.YELLOW + "nas help " + colors.END + colors.RED + "to see all options")
+    print(colors.RED + "Argument not recognised. Run "  + colors.END + colors.YELLOW + "n help " + colors.END + colors.RED + "to see all options")
